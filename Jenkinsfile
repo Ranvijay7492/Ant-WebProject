@@ -7,12 +7,12 @@ stages
 { 
     stage ('scm checkout')
     {
-        steps { git branch: 'master', url: 'https://github.com/prakashk0301/Ant-WebProject/' }
+        steps { git branch: 'master', url: 'https://github.com/Ranvijay7492/Ant-WebProject/' }
     }
 
     stage ('ant-prepare-target')
     {
-        steps { withAnt(installation: 'ANT_HOME', jdk: 'JAVA_HOME') 
+        steps { withAnt(installation: 'LocalAnt', jdk: 'JAVA_HOME') 
         {
           sh 'ant prepare'
         }     }
@@ -21,7 +21,7 @@ stages
     stage ('ant-init-target')
     {
         steps 
-         { withAnt(installation: 'ANT_HOME', jdk: 'JAVA_HOME') 
+         { withAnt(installation: 'LocalAnt', jdk: 'JAVA_HOME') 
            {
                sh 'ant init'
            }  }
